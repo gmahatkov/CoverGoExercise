@@ -1,14 +1,18 @@
 <template>
-  <div class="home">
-    <h2 class="m-12 text-3xl">init</h2>
-  </div>
+  <layout-panel title="Hello There!">
+    <p class="mb-12">Let's buy some insurance. It is going to take only a few steps.</p>
+    <app-button text="Start" variant="variant-1" @click="goToForm" />
+  </layout-panel>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import LayoutPanel from '@/components/LayoutPanel.vue';
+import AppButton from '@/components/AppButton.vue';
+import { useRouter } from 'vue-router';
 
-export default defineComponent({
-  name: 'HomeView',
-  components: {},
-});
+const router = useRouter();
+
+function goToForm() {
+  router.push('form');
+}
 </script>
