@@ -19,5 +19,6 @@ onErrorCaptured((err) => {
     store.commit('setAppError', err);
     goToError();
   }
+  return false;
 });
 </script>
