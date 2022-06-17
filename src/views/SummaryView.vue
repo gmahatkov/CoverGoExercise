@@ -41,6 +41,7 @@ const values = computed<Array<Array<any>>>(() => {
     'Age': age,
     'Where do you live': ContriesOptions.find((i) => i.value === country)?.text,
     'Package': PackagesOptions.find((i) => i.value === pack)?.text,
+    'Premium': `${store.getters.summary}${country}`,
   });
 });
 
