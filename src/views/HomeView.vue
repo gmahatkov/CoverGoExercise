@@ -8,11 +8,7 @@
 <script setup lang="ts">
 import LayoutPanel from '@/components/LayoutPanel.vue';
 import AppButton from '@/components/AppButton.vue';
-import { useRouter } from 'vue-router';
+import useRouterShortcuts from '@/utils/router-shortcuts';
 
-const router = useRouter();
-
-function goToForm() {
-  router.push('form');
-}
+const { goToForm } = useRouterShortcuts();
 </script>
