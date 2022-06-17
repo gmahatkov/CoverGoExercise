@@ -15,7 +15,7 @@ const { goToError } = useRouterShortcuts();
 const store = useStore<IState>();
 
 onErrorCaptured((err) => {
-  if (err instanceof errors.ValidityError) {
+  if (err instanceof errors.AppError) {
     store.commit('setAppError', err);
     goToError();
   }

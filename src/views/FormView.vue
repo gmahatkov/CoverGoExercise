@@ -56,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { useStore } from 'vuex';
 import LayoutPanel from '@/components/LayoutPanel.vue';
 import FormField from '@/components/FormField.vue';
@@ -102,7 +102,7 @@ const disableSubmit = computed(() => !formValues.value.age || !formValues.value.
 // Methods
 function validateAndProceed() {
   if (formValues.value.age > 100) {
-    throw new errors.InvalidAgeError('Your age is over our accepted limit.\nWe are sorry but we canot insure you now.');
+    throw new errors.InvalidAgeError();
   }
   goToSummary();
 }

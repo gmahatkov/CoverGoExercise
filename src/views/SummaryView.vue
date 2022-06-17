@@ -32,13 +32,13 @@ const store = useStore<IState>();
 const { goToHome, goToForm } = useRouterShortcuts();
 
 // computed
-const values = computed<Array<Array<any>>>(() => {
+const values = computed<Array<Array<string>>>(() => {
   const {
     age, name, country, pack,
   } = store.state.formValues;
   return Object.entries({
     'Name': name,
-    'Age': age,
+    'Age': age.toString(),
     'Where do you live': ContriesOptions.find((i) => i.value === country)?.text,
     'Package': PackagesOptions.find((i) => i.value === pack)?.text,
     'Premium': `${store.getters.summary}${country}`,
