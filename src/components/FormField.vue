@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <label v-if="label">
-            {{ label }}
-        </label>
+    <div class="mb-8">
+        <div v-if="label" class="mb-2 text-left">
+            {{ props.label }}
+        </div>
         <div>
             <slot />
         </div>
@@ -11,11 +11,11 @@
 
 <script setup lang="ts">
 
-import { defineProps } from "vue";
+import { defineProps } from 'vue';
 
 interface IProps {
     label?: string,
 }
 
-const { label } = defineProps<IProps>();
+const props = defineProps<IProps>();
 </script>

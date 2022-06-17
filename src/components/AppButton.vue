@@ -2,7 +2,7 @@
     <button
         @click.prevent="$emit('click', $event)"
         :disabled='props.disabled ?? false'
-        class="w-32 text-md rounded border-2 border-slate-900 py-2 px-4"
+        class="app-button"
         :class='variantClass'
     >
         {{ props.text }}
@@ -27,7 +27,25 @@ interface IEmits {
 defineEmits<IEmits>();
 
 const variantClass = ref({
-  'variant-1': 'bg-transparent text-slate-900',
-  'variant-2': 'bg-slate-900 text-white',
+  'variant-1': 'app-button__variant_1',
+  'variant-2': 'app-button__variant_2',
 }[props.variant ?? 'variant-1']);
 </script>
+
+<style>
+.app-button {
+  @apply w-32 rounded border-2 border-slate-900 py-2 px-4;
+}
+.app-button__variant_1 {
+  @apply bg-transparent text-slate-900;
+}
+.app-button__variant_2 {
+  @apply bg-slate-900 text-white;
+}
+.app-button__variant_1:disabled {
+  @apply border-slate-500 text-slate-400;
+}
+.app-button__variant_2:disabled {
+  @apply border-slate-500 bg-slate-400;
+}
+</style>
